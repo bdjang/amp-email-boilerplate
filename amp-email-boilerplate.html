@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html ⚡4email data-css-strict lang="en">
+<head>
+<meta charset="utf-8">
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<!-- <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script> -->
+<!-- <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script> -->
+<!-- <script async custom-element="amp-autocomplete" src="https://cdn.ampproject.org/v0/amp-autocomplete-0.1.js"></script> -->
+<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+<script async custom-element="amp-fit-text" src="https://cdn.ampproject.org/v0/amp-fit-text-0.1.js"></script>
+<!-- <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script> -->
+<!-- <script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script> -->
+<!-- <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script> -->
+<!-- <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script> -->
+<!-- <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script> -->
+<!-- <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script> -->
+<!-- <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script> -->
+<script async custom-element="amp-timeago" src="https://cdn.ampproject.org/v0/amp-timeago-0.1.js"></script>
+<style amp4email-boilerplate>body{visibility:hidden}</style>
+<style amp-custom>
+	.container {
+		border: 1px solid #cccccc;
+		font-family: monospace;
+		height: auto;
+		text-align: center;
+		width: 700px;
+	}
+	/* amp-carousel targeted CSS styles */
+	amp-carousel {
+		border: 1px solid #999999;
+	}
+	.amp-carousel-button-next {
+		background-image: url("https://user-images.githubusercontent.com/6575035/173212083-983cbf9b-d671-4e6a-90e7-d3c52cdcddf5.png");
+		background-size: 50px 50px;
+		right: 275px;
+		top: 65%;
+	}
+	.amp-carousel-button-prev {
+		background-image: url("https://user-images.githubusercontent.com/6575035/173212090-b80f4b81-9e2a-46f2-bbe6-74e86f9f27de.png");
+		background-size: 50px 50px;
+		left: 275px;
+		top: 65%;
+	}
+	.amp-carousel-button {
+		background-color: transparent;
+		height: 60px;
+		width: 60px;
+		outline: none;
+	}
+	amp-carousel h1:nth-child(1) {
+		background-color: red;
+	}
+	amp-carousel h1:nth-child(2) {
+		background-color: blue;
+	}
+	/* amp-fit-text styles */
+	.ampText_lg, .ampText_md, .ampText_sm { border: 1px solid red; margin: 0 auto; }
+	.ampText_lg { width: 600px; }
+	.ampText_md { width: 300px; }
+	.ampText_sm { width: 100px; }
+</style>
+
+</head>
+	<body>
+		<div class="container">
+			<div class="ampBind">
+				<h1>amp-bind</h1>
+				<h3>AMP.setState() with select</h3>
+				<select on="change:AMP.setState({ option: event.value })">
+					<option value="0">No selection</option>
+					<option value="1">Option 1</option>
+					<option value="2">Option 2</option>
+				</select>
+				<!-- 8.14.22: these <div> HTML elements are hidden by default. It stays hidden when the option value is not 1 (or it becomes visible when option value equals 1) -->
+				<div hidden [hidden]="option != 1">Option 1</div>
+				<div hidden [hidden]="option != 2">Option 2</div>
+			</div>
+			<div class="ampCarousel">
+				<h1>amp-carousel</h1>
+				<amp-carousel width="600" height="100" layout="responsive" type="slides" controls loop>
+					<h1>1</h1>
+					<h1>2</h1>
+					<h1>3</h1>
+					<h1>4</h1>
+				</amp-carousel>
+			</div>
+			<!-- 8.14.22: amp-fit-text is based on the space given to it -->
+			<h1>amp-fit-text</h1>
+			<div class="ampText_lg">
+				<amp-fit-text width="300" height="100" layout="responsive" max-font-size="32"><h1>large amp-fit-text example</h1></amp-fit-text>
+			</div>
+			<div class="ampText_md">
+				<amp-fit-text width="300" height="100" layout="responsive" max-font-size="32"><h1>medium amp-fit-text example</h1></amp-fit-text>
+			</div>
+			<div class="ampText_sm">
+				<amp-fit-text width="300" height="100" layout="responsive" max-font-size="32"><h1>small amp-fit-text example</h1></amp-fit-text>
+			</div>
+			<div class="ampTimeago">
+				<h1>amp-timeago</h1>
+				<amp-timeago layout="fixed" width="160" height="20" datetime="2022-08-14T00:37:33.809Z" locale="en"> Sunday 14 August 2022 00.00 </amp-timeago>
+			</div>
+		</div>
+	</body>
+</html>
